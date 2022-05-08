@@ -3,6 +3,19 @@ body{
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
+#cabecera{
+    background: rgb(35, 161, 84);
+    border: rgb(248, 248, 248);
+    color: rgb(255, 255, 255);
+    box-shadow: 14px 14px 37px -15px rgba(0,0,0,0.75);
+    font-weight: bold; 
+    padding: 0,5em; 
+    font-size: 40px;  
+}
+#cabecera #tagline{
+    font-weight: normal;
+    font-size: 35px;
+}
 #container{
     width: 70%;
     padding: 1em;
@@ -10,6 +23,7 @@ body{
     border: 1px solid #DDD;
     margin: 0 auto;
 }
+
 
 #container h1{
     font-size: 40px;
