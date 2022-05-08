@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+}
+html{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+:root{
+    --orangenormal: #FF8616;
+    --whilefondos:#DEDEDE;
+    --blackfonts: #2D2D2D; 
+    --semi-black-background: #3E3E3E;
+    --white-fonts: #ffffff;
+    --Gray-fonts: #5B5B5B; 
+}
+main{
+    
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    
+}
+
+.form-registro label{
+
+    color: rgb(7, 8, 5);
+    display: inline-block;
+}
+.form-registro input{
+    display: block;
+    width: 200px;
+    height: 30px;
+    margin: 10px 0 10px 0;
+
+}
+.form-registro button{
+    width: 200px;
+    height: 30px;
+    border: 0;
+    border-radius: 5px;
+    background-color: rgb(90, 161, 18);
+    color: white;
+
+}

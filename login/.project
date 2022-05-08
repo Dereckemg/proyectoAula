@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jectDescription>
+	<name>Login-y-registro-con-html-css-js-main</name>
+	<comment></comment>
+	<jects>
+	</jects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.wst.validation.validationbuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
+	</natures>
+</jectDescription>

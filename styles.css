@@ -1,0 +1,552 @@
+:root{
+    --orangenormal: #FF8616;
+    --whilefondos:#DEDEDE;
+    --blackfonts: #2D2D2D; 
+    --semi-black-background: #3E3E3E;
+    --white-fonts: #ffffff;
+    --Gray-fonts: #5B5B5B; 
+}
+*{
+    box-sizing:border-box;
+    margin: 0%;
+    padding: 0%;
+    list-style: none;
+    text-decoration: none;
+}
+html{
+    font-size: 62.5%;
+    font-family: 'Nunito', sans-serif;
+}
+/*
+.nav-container{
+    width: 100%;
+    height: 40px;
+    background-color: var(--whilefondos);
+}
+.container-header{
+    width: 90%;
+    height: inherit;
+    background-color: inherit;
+    position: center;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    
+
+}
+.link-title-nav{
+    text-decoration: none;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.8rem;
+    line-height: 18px;
+    font-family: Nunito;
+    color: var(--blackfonts);
+    position: relative;
+    left: 10px;
+    top: 25%;
+} 
+
+.A-title-nav{
+    color: var(--orangenormal);
+}
+.S-title-nav{
+    color: var(--orangenormal);
+}
+*/
+/*.button-nav-hamburguesa{
+    width: 25px;
+    height: 25px;
+    border: 1px ;
+    border-radius: 1px;
+    background-size: 21px;
+    background-image: url(/imagenes/icon-bar-menu.svg);
+    margin-top: 5px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--while-fondo);
+}*/
+
+/* Todo relacionado con la nav hamburguesa
+
+.icon-bar-menu{
+    z-index:10 ;
+
+}
+.icon-bar-menu{
+    margin-top: 5px;
+    vertical-align: top;
+    width: 30px;
+    cursor: pointer;
+}
+.container-menu{
+    background-color: var(--orangenormal);
+    width: 100%;
+    height:100vh;
+    position: relative;
+    top: 0;
+    right: 0;
+    transition: all .5 ease;
+}
+
+.container-menu ul{
+    padding: 100px 0px 20px 0px;
+    list-style: none;
+}
+
+.container-menu ul li{
+    color: var(--whilefondos);
+    display: block;
+    font-size: 25px;
+    text-decoration: none;
+    padding: 10px 50px;
+    cursor: pointer;
+}
+
+.container-menu ul li:hover{
+    background-color: var(--whilefondos);
+    color: var(--blackfonts);
+}
+
+.active{
+    transform: translate(-600px);
+    
+}
+
+.opacity{
+    background-color: var(--blackfonts);
+    transition: all .5 ease;
+    background-color: var(--orangenormal);
+    width: 100%;
+    height:100vh;
+    position: relative;
+    top: 0;
+    right: 0;
+    transition: all .5 ease;
+}
+
+
+ ARRIBAAAAA Todo relacionado con la nav hamburguesa*/
+
+
+ /*Todo el siguiente codigo es relacinado con el navbar y icono de hamburguesa con jquery*/
+ nav{
+    height: 80px;
+    width: 100%;
+    background:var(--orangenormal);
+    
+}
+label.logo{
+    font-size: 35px;
+    font-weight: bold;
+    color: white;
+    padding: 0 50px;
+    line-height: 80px;
+}
+
+nav ul{
+    float: right;
+    margin-right: 40px;
+}
+
+nav li{
+    display: inline-block;
+    margin: 0 8px;
+    line-height: 80px;
+
+}
+
+
+nav a{
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    padding: 7px 10px;
+    border-radius: 3px;
+}
+
+a.active,a:hover{
+    border: 1px solid  white;
+    transition: .5s;
+
+}
+
+nav #icon{
+    color: white;
+    font-size: 30px ;
+    line-height: 80px;
+    margin-right: 40px;
+    float: right;
+    margin-right: 40px;
+    cursor: pointer;
+}
+
+
+/*Uso de media queries */
+
+@media (max-width: 1048px){
+    label.logo{
+        font-size: 32px;
+        padding-left: 60px; 
+
+    }
+    nav ul{
+        margin-right: 20px;
+
+    }
+    
+    nav a{
+        font-size: 17px;
+    }
+}
+
+@media (max-width:909px){
+    nav #icon{
+        display: block;
+    }
+    nav ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background:#2f3640;
+        top: 80px;
+        left: -100%;
+        transition: all .5s;
+        text-align: center;
+    }
+    nav li{
+        display: block;
+        margin: 50px 0px;
+        line-height: 30px;
+    }
+    nav a{
+        font-size: 20px;
+
+    }
+
+    a.active,a:hover{
+        border: none;
+        color: #3498db;
+
+    }
+    nav ul.show {
+        left: 0;
+        
+        
+    } 
+    nav ul.showdont {
+        left: 10;
+        
+        
+    } 
+    .title-dont-show{
+       
+        z-index: -1;
+
+    }
+    .title-show{
+       
+        z-index: 1;
+
+    }
+   
+
+}
+
+ /*Todo el codigo de arriba es relacinado con el navbar y icono de hamburguesa con jquery*/
+.secction_container-1{
+    width: 100%;
+    height: 450px;
+    background-color: var(--whilefondos);
+    padding: 0 20px 0 20px;
+}
+.Container-content_secction-1{
+    width: 100%;
+    height: 100%;
+    background-color:var(--whilefondos);
+    padding: 0 10px 0 10px;
+    justify-content: center;
+}
+.llanta-carro_title{
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: inline-block;
+    background-position-y: top;
+
+    
+}
+h1{
+    position: relative;
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 3.6rem;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: var(--blackfonts);
+    padding: 30px 0 30px 0;
+    
+
+
+}
+
+.A-title_autosoft{
+    color: var(--orangenormal);
+}
+.S-title_autosoft{
+    color: var(--orangenormal);
+}
+.parrafo-title{
+    font-family: Nunito;
+font-style: normal;
+font-weight: normal;
+font-size: 1.3rem;
+line-height: 18px;
+text-align: center;
+color: var(--blackfonts);
+padding: 10px 0 10px 0;
+}
+
+.imagen-fondo_carro{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+}
+
+
+.container-button{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+.button-read-more_secction1 {
+    width: 90px;
+    height: 35px;
+    border: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    background-color: var(--orangenormal);
+    color: var(--white-fonts);
+
+}
+.button-about-us_secction1{
+    width: 90px;
+    height: 35px;
+    border: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: var(--blackfonts);
+    color: var(--white-fonts);
+
+}
+
+/*Secction two 2 this part it about the seconds division*/
+.secction_container-2{
+    width: 100%;
+    height: 680px;
+    background-color: var(--semi-black-background);
+    padding: 0 20px 0 20px;
+    background-image: url(../proyectoAula/imagenes/llave-new.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    
+
+}
+.container-content-secction2{
+    padding: 20px 0 20px 0;
+}
+.title-Que-es-secction-1 ,  .title-Porque-secction-2 {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 65px;
+    font-size: 4.8rem;
+    color: var(--white-fonts);
+    padding: 20px 0 20px 0 ;
+    text-shadow: 0px 5px 4px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+.interrogations-orange_title1 , .interrogations-orange_title2{
+    color: var(--orangenormal);
+}
+.parrafo-title-Que-es_secction2 , .parrafo-title-Por-que_secction2{
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.4rem;
+    line-height: 19px;
+    color: var(--white-fonts);
+    padding: 20px 0 20px 0 ;
+    text-justify: auto;
+}
+.section-container-3{
+    width: 100%;
+    height: 670px;
+    background-position: center;
+    background-image: url(../proyectoAula/imagenes/background-secction-3.png);
+
+}
+.container-content-secction-3{
+    padding: 0 10px 0 10px;
+}
+.title-Quienes-somos-secction ,.title-Que-Ofrecemos-secction{
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 3.2rem;
+    line-height: 49px;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color:var(--Gray-fonts);
+    padding: 20px 0 20px 0;
+}
+.parrafo-title-Quienes-somos-secction3 , .parrafo-title-Que-Ofrecemos-secction3{
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    text-align: center;
+    color: var(--blackfonts);
+    padding: 10px 20px 10px 20px;
+}
+.container-content-imgs_secction3{
+    width: 100%;
+    height: 150px;
+    max-height: 180px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+    
+}
+.content-imgs-perfil_secction3{
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70px 70px;
+}
+
+/*Secction 4 */
+
+.section-container-4{
+    width: 100%;
+    height: 700px;
+    background-color: var(--semi-black-background);
+}
+.title-Contactanos-secction{
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 49px;
+    text-align: center;
+    color: var(--white-fonts);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 20px 0 20px 0;
+
+}
+.letter-C-contactanos_secction4{
+    color: var(--orangenormal);
+}
+.container-form_secction4{
+    width: 250px;
+    height: max-content;
+    margin: 0 auto;
+    
+
+}
+form{
+    width: 250px;
+   
+   
+}
+
+.labels-form{
+    display: block;
+    color: var(--white-fonts);
+    font-family: Nunito;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 16px;
+text-align: left;
+    
+}
+.box-secction-form{
+    padding: 10px 0 10px 0;
+    
+}
+input{
+    width: 250px;
+    height: 50px;
+    border-radius: 5px;
+    border: 0px ;
+    border-color: var(--orangenormal);
+    background-color: #C4C4C4;
+}
+.textarea-form_secction4{
+    resize: none;
+    width: 250px;
+    height: 100px;
+    border-radius: 5px;
+    padding-bottom: 20px;
+    background-color: #C4C4C4;
+}
+.button-form-secction4{
+    width: 250px;
+    height: 45px;
+    background-color: var(--orangenormal);
+    color: var(--white-fonts);
+    border: none;
+    border-radius: 5px; 
+    font-family: Nunito;
+    font-weight: bold;
+    font-size: 2.0rem;
+    margin-top: 20px;
+}
+
+/* footer */
+
+.container-footer{
+    width: 100%;
+    height: 180px;
+    background-color: #000000;
+}
+i {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--white-fonts);
+    
+    
+}
+.container-imgs-enlazadas{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 0 20px 0;
+    
+
+}
+.container-img-logo{
+    display: flex;
+    justify-content: center;
+}
+.img-logos-enlaces{
+    width: 40px;
+    height: 40px;
+    
+}
+/* Media queries (max-width:425px)*/
