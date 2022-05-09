@@ -44,6 +44,8 @@ $row2 = $resultado2->fetch_assoc();
 $sql3 = "SELECT rol FROM codigos WHERE cod = '$iduser'";
 $resultado3 = $con ->query($sql3);
 $row3 = $resultado3->fetch_assoc();
+
+
 /*
 $sql="SELECT * FROM usuarios";
 $query=mysqli_query($con,$sql);
@@ -107,14 +109,19 @@ $row=mysqli_fetch_array($query);
                     <h4>Mi cuenta</h4>
                 </div>
             </a>
-            
-            <a href="a_trabajadores.php">
+            <?php
+            if ($row3['rol']=="Admin"){
+                echo'
+                <a href="a_trabajadores.php">
                 <div class="selected">
                     <i class="fas fa-users" title="Cursos"></i>
                     <h4>Trabajadores</h4>
                 </div>
             </a>
-
+           ';
+            }
+            ?>
+           
             <a href="#">
                 <div class="option">
                     <i class="	fas fa-clipboard" title="Blog"></i>
@@ -149,7 +156,7 @@ $row=mysqli_fetch_array($query);
                             <h1>Ingrese trabajador</h1>
                                 <form action="trabajadores_php/insertar.php" method="POST">
 
-                                    <input type="text" class="form-control mb-3" name="cod_trabajador" placeholder="Codigo">
+                                    <input type="text" class="form-control mb-3" name="cod_trabajador" placeholder="Codigo" id="texto">
                                     <span id="generatedPassword"></span> 
                                     </input>
                                     <input type="text" class="form-control mb-3" name="dni" placeholder="Cedula">
