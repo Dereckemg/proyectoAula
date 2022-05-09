@@ -29,6 +29,10 @@ $iduser = $_SESSION['cod_usuario'];
 $sql = "SELECT nombres FROM trabajadores WHERE cod_trabajador = '$iduser'";
 $resultado = $conexion ->query($sql);
 $row = $resultado->fetch_assoc();
+
+$sql3 = "SELECT rol FROM codigos WHERE cod = '$iduser'";
+$resultado3 = $conexion ->query($sql3);
+$row3 = $resultado3->fetch_assoc();
 /*
 $sql="SELECT * FROM usuarios";
 $query=mysqli_query($con,$sql);
@@ -87,12 +91,18 @@ $row=mysqli_fetch_array($query);
                 </div>
             </a>
             
-            <a href="a_trabajadores.php">
+            <?php
+            if ($row3['rol']=="Admin"){
+                echo'
+                <a href="a_trabajadores.php">
                 <div class="option">
                     <i class="fas fa-users" title="Cursos"></i>
                     <h4>Trabajadores</h4>
                 </div>
             </a>
+           ';
+            }
+            ?>
 
             <a href="#">
                 <div class="option">
