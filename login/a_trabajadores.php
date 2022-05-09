@@ -149,7 +149,7 @@ $row=mysqli_fetch_array($query);
                             <h1>Ingrese trabajador</h1>
                                 <form action="trabajadores_php/insertar.php" method="POST">
 
-                                    <input type="text" class="form-control mb-3" name="cod_trabajador" placeholder="Codigo">
+                                    <input type="text" class="form-control mb-3" name="cod_trabajador" placeholder="Codigoo">
                                     <span id="generatedPassword"></span> 
                                     </input>
                                     <input type="text" class="form-control mb-3" name="dni" placeholder="Cedula">
