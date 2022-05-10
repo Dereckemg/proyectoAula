@@ -1,0 +1,27 @@
+agregar tags
+$ git tag -a v0.1 -m "Resultado de las primeras clases del curso" 4eecd01
+
+el arbol
+$ alias arbol="git log --graph --decorate --oneline"
+
+historia en vista
+$gitk
+
+reseteamelo juerte 
+$ git reset ef612f8d8ad4ff55d9006137d843b61a5f12143f -- hard
+git reset 7b53ca9dc092c35bbb1ae62d54868583776f356f -- hard
+7b53ca9dc092c35bbb1ae62d54868583776f356f
+
+git pull origin main --allow-unrelated-histories |montar nuevo|
+
+git show <archivo> |muestra la diferancia|
+
+git add . |agregar todos los archivos|
+
+git commit |montar sin mensaje|
+
+git remote add origin <link del coso>
+
+git remote & git remote -v |mira el repositorio|
+
+git remote set-url origin <nueva url>
