@@ -1,11 +1,15 @@
-agregar tags
+agregar tags//
 $ git tag -a v0.1 -m "Resultado de las primeras clases del curso" 4eecd01
 git tag 
 git push origin --tags
 git tag -d <nombre del tag>
 git push origin :refs/tags/<nombre del tag> 
-el arbol
+
+
+// los git log
 $ alias arbol="git log --graph --decorate --oneline"
+git log <nombre de el archivo> |ver la historia|
+git log --oneline
 
 historia en vista
 $gitk
@@ -20,10 +24,11 @@ git pull origin main --allow-unrelated-histories |montar nuevo|
 git show <archivo> |muestra la diferancia|
 
 git add . |agregar todos los archivos|
-
 git commit |montar sin mensaje|
 
-git remote add origin <link del coso>
+//repositorios remotos
+
+git remote add <nombre del remoto>origin <link del coso>
 
 git remote & git remote -v |mira el repositorio|
 
@@ -31,11 +36,49 @@ git remote set-url origin <nueva url>
 
 git config -l |ver configuraciones|
 
-git log <nombre de el archivo> |ver la historia|
 
+// ramas
 git branch :<nombre de la rama> |me la deletea|
-
 git branch <crear rama> 
+git branch -r |ramas que estan remotas|
+git branch -a |todas las ramas local y remotas|
+
+--help
 
 -en la rama principal git merge <nombre de la rama>
 
+// pagina para editar md
+editor.md /pandao.github.io
+
+git stash |guardar los cambios rapidamente sin hacer commit|
+git stash pop |devuelve los cambios|
+git stash branch <nombre de la rama> |crear rama a partir de stash|
+git stash list 
+git stash drop 
+
+git clean --dry-run 
+git clean -f
+
+git cherry-pick <version de esa u otra rama>
+
+git reflog |y buscar el codigo bueno |
+
+git commit --amend |primero add y despues manda en el mismo commit anterior|
+
+//buscar cosas en el git{
+git grep color -->use la palabra color
+git grep la --> donde use la palabra la
+git grep -n color–> en que lineas use la palabra color
+git grep -n platzi --> en que lineas use la palabra platzi
+git grep -c la --> cuantas veces use la palabra la
+git grep -c paltzi --> cuantas veces use la palabra platzi
+git grep -c “<p>”–> cuantas veces use la etiqueta <p>
+
+git log-S “cabecera” --> cuantas veces use la palabra cabecera en
+todos los commits.
+
+grep–> para los archivos
+log --> para los commits.
+}
+
+git blame <nombre del archivo>
