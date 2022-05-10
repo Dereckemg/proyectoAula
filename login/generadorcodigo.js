@@ -21,28 +21,27 @@ const generatePassword = (base, length) => {
     
 
 
-const generateas = () => {
-    let length = 10;
+// const generateas = () => {
+//     let length = 10;
 
-    let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const numbers = "0123456789";
-    const symbols = ".?,;-_¡!¿*%&$/()[]{}|@><";
+//     let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+//     const numbers = "0123456789";
+//     const symbols = ".?,;-_¡!¿*%&$/()[]{}|@><";
 
-    base += numbers;
+//     base += numbers;
 
-    base += symbols;
+//     base += symbols;
 
-    let asd = generatePassword(base, length);
-}
+//     let asd = generatePassword(base, length);
+// }
 
 
-window.addEventListener("DOMContentLoaded", () => {
-        generate();
-});
-var asd
-asd = generatePassword(base, length);
-document.write (asd);
+// window.addEventListener("DOMContentLoaded", () => {
+//         generate();
+// });
+var asd;
+asd = "hola";
 var Myelement = document.getElementById("texto");
 console.log(Myelement.value);
-Myelement.value = asd;
+Myelement.value = "holasdads";
 console.log(Myelement.value);

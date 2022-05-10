@@ -157,8 +157,31 @@ $row=mysqli_fetch_array($query);
                                 <form action="trabajadores_php/insertar.php" method="POST">
 
                                     <input type="text" class="form-control mb-3" name="cod_trabajador" placeholder="Codigo" id="texto">
-                                    <span id="generatedPassword"></span> 
-                                    </input>
+                                   <script>
+                                       const generatePassword = (base, length) => {
+    let password = "";
+    for (let x = 0; x < length; x++) {
+        let random = Math.floor(Math.random() * base.length);
+        password += base.charAt(random);
+    }
+    return password;
+};
+
+
+    const length = 10;
+
+    var base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const numbers = "0123456789";
+    const symbols = ".?,;-_¡!¿*%&$/()[]{}|@><";
+
+    base += numbers;
+
+    base += symbols;
+                                       var asd
+                                        asd = generatePassword(base, length);
+                                        var Myelement = document.getElementById("texto");
+                                        Myelement.value = asd;
+                                       </script>
                                     <input type="text" class="form-control mb-3" name="dni" placeholder="Cedula">
                                     <input type="text" class="form-control mb-3" name="nombres" placeholder="Nombres">
                                     <input type="text" class="form-control mb-3" name="apellidos" placeholder="Apellidos">
