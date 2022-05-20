@@ -97,7 +97,7 @@ $row=mysqli_fetch_array($query);
                 </div>
             </a>
 
-            <a href="#">
+            <a href="a_citas.php">
                 <div class="option">
                     <i class="fas fa-user-circle" title="Portafolio"></i>
                     <h4>Mi cuenta</h4>
@@ -111,7 +111,7 @@ $row=mysqli_fetch_array($query);
                 </div>
             </a>
 
-            <a href="#">
+            <a href="a_stock.php">
                 <div class="option">
                     <i class="	fas fa-clipboard" title="Blog"></i>
                     <h4>Inventario</h4>

@@ -5,7 +5,7 @@ session_start();
 include("trabajadores_php/conexion.php");
     $con=conectar();
 
-    $sql="SELECT *  FROM clientes";
+    $sql="SELECT * FROM trabajadores";
     $query=mysqli_query($con,$sql);
 
     $row=mysqli_fetch_array($query);
@@ -13,7 +13,7 @@ include("trabajadores_php/conexion.php");
 if (!isset($_SESSION['cod_usuario'])){
     echo'
 <script>
-alert("Por favor iniciar secion");
+alert("Por favor iniciar sesion");
 window.location= "/proyectoAula/index.php";
 </script>
 ';
@@ -27,6 +27,7 @@ window.location= "/proyectoAula/index.php";
 }
 
 ?>
+
 <?php
 
 //Buscar usuario
@@ -43,6 +44,8 @@ $row2 = $resultado2->fetch_assoc();
 $sql3 = "SELECT rol FROM codigos WHERE cod = '$iduser'";
 $resultado3 = $con ->query($sql3);
 $row3 = $resultado3->fetch_assoc();
+
+
 /*
 $sql="SELECT * FROM usuarios";
 $query=mysqli_query($con,$sql);
@@ -50,7 +53,6 @@ $query=mysqli_query($con,$sql);
 $row=mysqli_fetch_array($query);
 */
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -71,14 +73,18 @@ $row=mysqli_fetch_array($query);
         <div class="icon__menu">
             <i class="fas fa-bars" id="btn_open"></i>
         </div>
+      
         <div class="container_navbar">
-        <p><?php echo  utf8_decode($row['nombres']); ?></p> <br>
-            <p>&nbsp<?php echo utf8_decode($row2['apellidos']); ?> </p>
-            <p><br><?php echo utf8_decode($row3['rol']); ?> </p>
+        
+            <p><br><?php echo  utf8_decode($row['nombres']); ?></p>
+            <p><br>&nbsp<?php echo utf8_decode($row2['apellidos']); ?> </p>
+            <p><br><b>&nbsp/<?php echo utf8_decode($row3['rol']); ?> </p> 
+        
             <div class="icon__notification">
                 <i class="far fa-bell"></i>
             </div>
         </div>
+       
     </header>
 
     <div class="menu__side" id="menu_side">
@@ -97,21 +103,26 @@ $row=mysqli_fetch_array($query);
                 </div>
             </a>
 
-            <a href="#">
-                <div class="option">
+            <a href="a_citas.php">
+                <div class="selected">
                     <i class="fas fa-user-circle" title="Portafolio"></i>
-                    <h4>Mi cuenta</h4>
+                    <h4>Citas</h4>
                 </div>
             </a>
-            
-            <a href="a_trabajadores.php">
+            <?php
+            if ($row3['rol']=="Admin"){
+                echo'
+                <a href="a_trabajadores.php">
                 <div class="option">
                     <i class="fas fa-users" title="Cursos"></i>
                     <h4>Trabajadores</h4>
                 </div>
             </a>
-
-            <a href="#">
+           ';
+            }
+            ?>
+           
+            <a href="a_stock.php">
                 <div class="option">
                     <i class="	fas fa-clipboard" title="Blog"></i>
                     <h4>Inventario</h4>
@@ -119,7 +130,7 @@ $row=mysqli_fetch_array($query);
             </a>
 
             <a href="a_clientes.php">
-                <div class="selected">
+                <div class="option">
                     <i class="far fa-id-badge" title="Contacto"></i>
                     <h4>clientes</h4>
                 </div>
@@ -137,35 +148,81 @@ $row=mysqli_fetch_array($query);
     </div>
 
     <main>
-    <div class="container mt-5">
+    <div class="container mt-5 ">
                     <div class="row"> 
                         
-                        <div class="col-md-3">
-                            <h1>Ingrese la cita</h1>
-                                <form action="clientes_php/insertar.php" method="POST">
+                            <div class="col-md-3 ">
+                        <div class="text-center mt-3">
+                            <h1>Ingrese Cita</h1>
+                                <form action="trabajadores_php/insertar.php" method="POST">
 
-                                    <input type="text" class="form-control mb-3" name="cod_cliente" placeholder="Cedula">
-                                    <input type="text" class="form-control mb-3" name="dni" placeholder="Telefono">
+                                    <input type="text" class="form-control mb-3" name="cod_trabajador" placeholder="Codigo" id="texto">
+                                   <script>
+                                       const generatePassword = (base, length) => {
+    let password = "";
+    for (let x = 0; x < length; x++) {
+        let random = Math.floor(Math.random() * base.length);
+        password += base.charAt(random);
+    }
+    return password;
+};
+
+
+    const length = 10;
+
+    var base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const numbers = "0123456789";
+    const symbols = ".?,;-_¡!¿*%&$/()[]{}|@><";
+
+    base += numbers;
+
+    base += symbols;
+                                       var asd
+                                        asd = generatePassword(base, length);
+                                        var Myelement = document.getElementById("texto");
+                                        Myelement.value = asd;
+                                       </script>
+                                    <input type="text" class="form-control mb-3" name="dni" placeholder="Cedula">
                                     <input type="text" class="form-control mb-3" name="nombres" placeholder="Nombres">
                                     <input type="text" class="form-control mb-3" name="apellidos" placeholder="Apellidos">
-                                    
                                     <input type="submit" class="btn btn-primary">
                                 </form>
+                                </div>
                         </div>
                         
-                        <div class="col-md-3">
-                            <h1>Busque la cita</h1>
-                                <form action="clientes_php/buscar.php" method="POST">
+                        <div class="col-md-3 mt-3">
+                            <h1>Busque Cita</h1>
+                                <form action="trabajadores_php/buscar.php" method="POST">
 
-                                    <input type="text" class="form-control mb-3" name="cod_cliente" placeholder="Cedula">
+                                    <input type="text" class="form-control mb-3" name="cod_trabajador" placeholder="Cedula">
                                     
                                     <input type="submit" class="btn btn-primary">
                                 </form>
                         </div>
-
                         <div class="col-md-8">
-                            <table class="table vw-100" >
-                                <thead class="table-success table-striped table-dark" >
+                            <!-- 
+                            /*
+$connection_obj = mysqli_connect("{MYSQL_HOSTNAME}", "{MYSQL_USERNAME}", "{MYSQL_PASSWORD}", "{MYSQL_DATABASE}");
+ 
+if (!$connection_obj) {
+    echo "Error No: " . mysqli_connect_errno();
+    echo "Error Description: " . mysqli_connect_error();
+    exit;
+}
+*/
+ 
+// prepare the select query
+/*
+$query = "SELECT * FROM trabajadores";
+// execute the select query
+/*
+while($row=mysqli_fetch_array($query)){
+    */
+$result = mysqli_query($con, $query) or die(mysqli_error($con));
+ 
+// run the select query
+
+echo "<table class='table' >
                                     <tr>
                                         <th>Cedula</th>
                                         <th>Telefono</th>
@@ -175,24 +232,57 @@ $row=mysqli_fetch_array($query);
                                         <th></th>
                                     </tr>
                                 </thead>
+                                ";
+
+while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
+    echo "Codigo:" . $row['cod_trabajador'] . "<br/>";
+    echo "Cedula:" . $row['dni'] . "<br/>";
+    echo "Nombres:" . $row['nombres'] . "<br/>";
+    echo "Apellidos:" . $row['apellidos'] . "<br/>";
+    echo "<br/>";
+}
+ /*
+// close the db connection
+mysqli_close($con);
+*/
+?>
+Aquí puedes escribir tu comentario -->
+<div class="mt-3">
+                            <table class="table vw-100">
+                                <thead class="table-success table-striped table-dark" >
+                                    <tr>
+                                        <th>Codigo</th>
+                                        <th>Cedula</th>
+                                        <th>Nombres</th>
+                                        <th>Apellidos</th>
+                                        <th>Estado</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
 
                                 <tbody>
                                         <?php
-                                            while($row=mysqli_fetch_array($query)){
+                                            //while($row=mysqli_fetch_array($query)){
+                                                $query = "SELECT * FROM trabajadores";
+                                                $result = mysqli_query($con, $query) or die(mysqli_error($con));
+                                                while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
                                         ?>
                                             <tr>
-                                                <th><?php  echo $row['cod_cliente']?></th>
+                                                <th><?php  echo $row['cod_trabajador']?></th>
                                                 <th><?php  echo $row['dni']?></th>
                                                 <th><?php  echo $row['nombres']?></th>
                                                 <th><?php  echo $row['apellidos']?></th>    
-                                                <th><a href="clientes_php/actualizar.php?id=<?php echo $row['cod_cliente'] ?>" class="btn btn-info">Editar</a></th>
-                                                <th><a href="clientes_php/delete.php?id=<?php echo $row['cod_cliente'] ?>" class="btn btn-danger">Eliminar</a></th>                                        
+                                                <th><?php  echo $row['Estado']?></th>    
+                                                <th><a href="trabajadores_php/actualizar.php?id=<?php echo $row['cod_trabajador'] ?>" class="btn btn-info">Editar</a></th>
+                                                <th><a href="trabajadores_php/delete.php?id=<?php echo $row['cod_trabajador'] ?>" class="btn btn-danger">Eliminar</a></th>                                        
                                             </tr>
                                         <?php 
                                             }
                                         ?>
                                 </tbody>
                             </table>
+                            </div>
                         </div>
                     </div>  
             </div>
@@ -200,5 +290,7 @@ $row=mysqli_fetch_array($query);
  </main>
     
     <script src="js_bienvenides.js"></script>
+    <script src="generadorcodigo.js"></script>
+
 </body>
 </html>

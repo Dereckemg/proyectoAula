@@ -86,7 +86,7 @@ $row=mysqli_fetch_array($query);
                 </div>
             </a>
 
-            <a href="#">
+            <a href="a_citas.php">
                 <div class="option">
                     <i class="fas fa-user-circle" title="Portafolio"></i>
                     <h4>Mi cuenta</h4>
