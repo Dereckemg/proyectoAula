@@ -1,4 +1,6 @@
 <?php
+  header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
+  header("Expires: Sat, 1 Jul 2000 05:00:00 GMT"); // Fecha en el pasado
 header('Content-Type: text/html; charset=ISO-8859-1');
 
 session_start();
@@ -130,7 +132,7 @@ $row=mysqli_fetch_array($query);
     </div>
 
     <main>
-  
+  <h1>holdasdlasdalsd</h1>
         <h1>Bienvenido <span></span></h1><br>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam sapiente cumque dicta animi explicabo sequi. Ex amet et, dolor eligendi commodi consectetur quo voluptatibus, cum nemo porro veniam at blanditiis?</p> <br>
 
