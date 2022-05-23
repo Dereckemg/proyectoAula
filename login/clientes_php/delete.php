@@ -5,7 +5,7 @@ $con=conectar();
 
 $cod_cliente=$_GET['id'];
 
-$sql="DELETE FROM clientes  WHERE cod_cliente='$cod_cliente'";
+$sql="DELETE FROM clientes  WHERE cedula='$cod_cliente'";
 $query=mysqli_query($con,$sql);
 
     if($query){

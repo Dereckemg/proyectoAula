@@ -7,6 +7,8 @@ session_start();
 
 include("php/conexion_be.php");
 
+
+
 if (!isset($_SESSION['cod_usuario'])){
     echo'
 <script>
@@ -28,13 +30,15 @@ window.location= "/proyectoAula/index.php";
 //Buscar usuario
 $iduser = $_SESSION['cod_usuario'];
 
-$sql = "SELECT nombres FROM trabajadores WHERE cod_trabajador = '$iduser'";
+$sql = "SELECT nombre FROM trabajadores WHERE cod_trabajador = '$iduser'";
 $resultado = $conexion ->query($sql);
 $row = $resultado->fetch_assoc();
 
-$sql3 = "SELECT rol FROM codigos WHERE cod = '$iduser'";
+$sql3 = "SELECT cargo FROM trabajadores WHERE cod_trabajador = '$iduser'";
 $resultado3 = $conexion ->query($sql3);
 $row3 = $resultado3->fetch_assoc();
+
+
 /*
 $sql="SELECT * FROM usuarios";
 $query=mysqli_query($con,$sql);
@@ -51,94 +55,118 @@ $row=mysqli_fetch_array($query);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi cuenta</title>
 
-    <link rel="stylesheet" href="assets/css/estiloss.css">
-
-
+    <link rel="stylesheet" href="assets/css/estilloss.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 </head>
 <body id="body">
     
-    <header>
-        <div class="icon__menu">
-            <i class="fas fa-bars" id="btn_open"></i>
-        </div>
-        <div class="container_navbar">
-        <h1 style= top:20px;>hola&nbsp</h1> <h1><?php echo utf8_decode($row['nombres']); ?></h1>
-            <div class="icon__notification">
-                <i class="far fa-bell"></i>
-            </div>
-        </div>
-    </header>
-
-    <div class="menu__side" id="menu_side">
-
-        <div class="name__page">
-            <i class="	fas fa-car"></i>
-            <h4>AutoSoft</h4>
-        </div>
-
-        <div class="options__menu">	
-
-            <a href="#" class="selected">
-                <div class="option">
-                    <i class="fas fa-home" title="Inicio"></i>
-                    <h4>Inicio</h4>
-                </div>
-            </a>
-
-            <a href="a_citas.php">
-                <div class="option">
-                    <i class="fas fa-user-circle" title="Portafolio"></i>
-                    <h4>Mi cuenta</h4>
-                </div>
-            </a>
-            
-            <?php
-            if ($row3['rol']=="Admin"){
-                echo'
-                <a href="a_trabajadores.php">
-                <div class="option">
-                    <i class="fas fa-users" title="Cursos"></i>
-                    <h4>Trabajadores</h4>
-                </div>
-            </a>
-           ';
-            }
-            ?>
-
-            <a href="#">
-                <div class="option">
-                    <i class="	fas fa-clipboard" title="Blog"></i>
-                    <h4>Inventario</h4>
-                </div>
-            </a>
-
-            <a href="a_clientes.php">
-                <div class="option">
-                    <i class="far fa-id-badge" title="Contacto"></i>
-                    <h4>clientes</h4>
-                </div>
-            </a>
-
-            <a href="php/cerrar_sesion.php">
-                <div class="option">
-                    <i class="fas fa-power-off" title="Nosotros"></i>
-                    <h4>cerrar sesion</h4>
-                </div>
-            </a>
-
-        </div>
-
-    </div>
+    <?php
+        include("menu_sides.php");
+        elegir_menu(1);
+?>
+    
 
     <main>
-  <h1>holdasdlasdalsd</h1>
-        <h1>Bienvenido <span></span></h1><br>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam sapiente cumque dicta animi explicabo sequi. Ex amet et, dolor eligendi commodi consectetur quo voluptatibus, cum nemo porro veniam at blanditiis?</p> <br>
+    <div class="container-main">
+           <div class="container-informations">
+               <div class="target-information">
+                    <div class="section-contents">
+                       <h4 class="span-title">Titulo Prueba</h4>
+                       <span class="span-prices">$12,430</span>
+                       <span class="span-percentage">31.5% <i class="fa-solid fa-arrow-up" ></i></span>
 
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. vident adipisci beatae impedit quia, deleniti quasi sequi iusto exercitationem nihil nulla, laboriosam dolore corrupti fuga officiis? Odit a mollitia id magnam amet delectus quia blanditiis reprehenderit explicabo eveniet! Rem voluptatum explicabo ipsum quae, dolorum, laudantium doloribus a, illum saepe sapiente accusantium dicta reiciendis? Amet iure porro voluptatum error fugit odit voluptas?</p>
+                    </div>
+                    <div class="section-icon-home">
+                    <i class="fa-solid fa-3x fa-location-crosshairs"style="color:#0364AB;"></i>
+                    </div>
+                </div>
+               <div class="target-information">
+
+               <div class="section-contents">
+                       <h4 class="span-title">Titulo Prueba</h4>
+                       <span class="span-prices">$15,960</span>
+                       <span class="span-percentage2">10.5% <i class="fa-solid fa-arrow-up" ></i></span>
+
+                    </div>
+                    <div class="section-icon-home">
+                    <i class="fa-solid fa-money-check-dollar fa-3x" style="color:#3B9B00;"></i>
+                    </div>
+
+               </div>
+               <div class="target-information">
+
+               <div class="section-contents">
+                       <h4 class="span-title">Titulo Prueba</h4>
+                       <span class="span-prices">$7,000</span>
+                       <span class="span-percentage">69.5% <i class="fa-solid fa-arrow-up" ></i></span>
+
+                    </div>
+                    <div class="section-icon-home">
+                    <i class="fa-solid fa-user fa-3x" style="color:#474747;"></i>
+                    </div>
+
+               </div>
+               
+           </div>
+           <div class="container-section-2">
+               <section class="section-estadisticas">
+                   <div class="container-grafica-estadistica">
+                        <canvas id="myChart" width="400" height="400"></canvas>
+                   </div>
+               </section>
+               <section class="section-estadisticas-mapa">
+                   <div class="container-title">
+                       <h3>Conoce Tu Cede</h3>
+                   </div>
+                   <div class="container-section-mapa">
+                   <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15697.80359908169!2d-75.46942804999999!3d10.38571675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sco!4v1653144828329!5m2!1ses!2sco" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                   </div>
+               </section>
+
+               </div>
+
+           
+       </div>
     </main>
-    
     <script src="js_bienvenides.js"></script>
+    <script>
+        var ctx=document.getElementById("myChart").getContext("2d");
+        var myChart = new Chart(ctx,{
+            type:"pie",
+            data:{
+                labels:[
+                        'Enero',
+                        'Febrero',
+                        'Marzo',
+                        'Abril',
+                        'Mayo',
+                        'Junio',
+                    ],
+                datasets:[{
+                    label:'Estadisticas Clientes / Mes',
+                    data:[0, 10, 5, 2, 15, 3],
+                    backgroundColor:[
+                        'rgb(66,134,244,0.5)',
+                        'rgb(255, 103, 103,0.5)',
+                        'rgb(255, 162, 75 ,0.5)'
+                    ]
+                }]
+            },
+            options:{
+                scales:{
+                    yAxes:[{
+                        ticks:{
+                            beinAtZero:true
+                        }
+                    }]
+                }
+            }
+
+        });
+
+    </script>
+    
+    
 </body>
 </html>

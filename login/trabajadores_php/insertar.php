@@ -3,11 +3,13 @@ include("conexion.php");
 $con=conectar();
 
 $cod_trabajador=$_POST['cod_trabajador'];
-$dni=$_POST['dni'];
+$cedula=$_POST['cedula'];
 $nombres=$_POST['nombres'];
 $apellidos=$_POST['apellidos'];
+$telefono=$_POST['telefono'];
+$rol= $_POST['rol'];
 
-$verificar_cedula= mysqli_query($con,"SELECT * FROM trabajadores WHERE cod_trabajador= '$cod_trabajador' ");
+$verificar_cedula= mysqli_query($con,"SELECT * FROM trabajadores WHERE cod_trabajador= '$cod_trabajador'");
     
     if (mysqli_num_rows($verificar_cedula) > 0){
         echo '
@@ -20,7 +22,7 @@ $verificar_cedula= mysqli_query($con,"SELECT * FROM trabajadores WHERE cod_traba
     }
 
 
-$sql="INSERT INTO trabajadores VALUES('$cod_trabajador','$dni','$nombres','$apellidos','activo')";
+$sql="INSERT INTO trabajadores VALUES('$cod_trabajador','$cedula','$nombres','$apellidos','$telefono','$rol','activo')";
 $query= mysqli_query($con,$sql);
 
 if($query){

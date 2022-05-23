@@ -2,12 +2,14 @@
 include("conexion.php");
 $con=conectar();
 
-$cod_cliente=$_POST['cod_cliente'];
-$dni=$_POST['dni'];
-$nombres=$_POST['nombres'];
+$cedula=$_POST['cedula'];
+$nombre=$_POST['nombres'];
 $apellidos=$_POST['apellidos'];
+$direccion=$_POST['direccion'];
+$telefono=$_POST['telefono'];
 
-$verificar_cedula= mysqli_query($con,"SELECT * FROM clientes WHERE cod_cliente= '$cod_cliente' ");
+
+$verificar_cedula= mysqli_query($con,"SELECT * FROM clientes WHERE cedula= '$cedula' ");
     
     if (mysqli_num_rows($verificar_cedula) > 0){
         echo '
@@ -20,7 +22,7 @@ $verificar_cedula= mysqli_query($con,"SELECT * FROM clientes WHERE cod_cliente= 
     }
 
 
-$sql="INSERT INTO clientes VALUES('$cod_cliente','$dni','$nombres','$apellidos')";
+$sql="INSERT INTO clientes VALUES('$cedula','$nombre','$apellidos','$direccion','$telefono')";
 $query= mysqli_query($con,$sql);
 
 if($query){

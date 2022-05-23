@@ -6,9 +6,11 @@
     $correo =$_POST['correo'];
     $usuario =$_POST['usuario'];
     $contrasena =$_POST['contrasena'];
-    
-    $query = "INSERT INTO usuarios(nombre_completo,correo,usuario,contrasena) 
-    VALUES('$nombre_completo','$correo','$usuario','$contrasena')";
+    $codigo =$_POST['cod_usuario'];
+    $imagen_perfil = addslashes(file_get_contents($_FILES['Imagen']['tmp_name']));
+
+    $query = "INSERT INTO usuarios
+    VALUES('$codigo','$nombre_completo','$correo','$usuario','$contrasena','$imagen_perfil')";
     
     //verificar que el correo no se repita en la base de datos
     
@@ -34,6 +36,16 @@
             </script>
 ';
         exit();
+    }
+
+    $verificar_codigo= mysqli_query($conexion,"SELECT * FROM trabajadores WHERE cod_trabajador= '$codigo' ");
+    
+    if (mysqli_num_rows($verificar_codigo) <= 0){
+        echo '
+        <script>
+            alert("No existe un trabajador con ese codigo");
+            window.location= "/proyectoAula/index.php";
+        </script>';
     }
     
    $ejecutar = mysqli_query($conexion, $query); 

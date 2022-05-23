@@ -9,11 +9,11 @@
         $contrasena = $_POST['contrasena'];
         
         $validar_login = mysqli_query($conexion, "SELECT * FROM usuarios WHERE usuario ='$usuario' 
-                        and contrasena='$contrasena'");
+                        and contraseña='$contrasena'");
                         
                         if (mysqli_num_rows($validar_login) > 0){
                             //$resultado = mysqli_query($conexion,"SELECT cod_usuario FROM usuarios WHERE usuario ='$usuario' and contrasena='$contrasena'");
-                            $sql= "SELECT cod_usuario FROM usuarios WHERE usuario ='$usuario' and contrasena='$contrasena'";
+                            $sql= "SELECT cod_usuario FROM usuarios WHERE usuario ='$usuario' and contraseña='$contrasena'";
                             $resultado = $conexion ->query($sql);
                             $row = $resultado->fetch_assoc();
                             

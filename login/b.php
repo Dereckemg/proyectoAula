@@ -54,19 +54,20 @@
 <!--Login-->
 <form action="php/login_usuario_be.php" method = "POST" class="formulario__login">
 <h2>Iniciar Sesion</h2>
-<input type="text" placeholder="usuario" name= "usuario">
-<input type="password" placeholder="Contraseña" name= "contrasena">
+<input type="text" placeholder="usuario" name= "usuario" required>
+<input type="password" placeholder="Contraseña" name= "contrasena" required>
 <button>Entrar</button>
 </form>
 
 <!--Register-->
-<form action="php/registro_usuario_be.php" method = "POST" class="formulario__register">
+<form action="php/registro_usuario_be.php" method = "POST" class="formulario__register" id="formulario" enctype="multipart/form-data">
 <h2>Registrarse</h2>
-<input type="text" placeholder="Nombre completo" name="nombre_completo">
-<input type="text" placeholder="Correo Electronico" name="correo">
-<input type="text" placeholder="Usuario" name="usuario">
-<input type="password" placeholder="Contraseña" name="contrasena">
-<button>Registrarse</button>
+<input type="text" placeholder="Usuario" name="usuario" required>
+<input type="text" placeholder="Nombre completo" name="nombre_completo" required>
+<input type="text" placeholder="Correo Electronico" name="correo" required>
+<input type="password" placeholder="Contraseña" name="contrasena" required>
+<input type="text" placeholder="Codigo" name="cod_usuario" required>
+<button type="submit" form="formulario">Registrarse</button>
 </form>
 </div>
 </div>
