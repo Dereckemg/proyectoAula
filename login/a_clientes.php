@@ -2,7 +2,7 @@
 header('Content-Type: text/html; charset=ISO-8859-1');
 
 session_start();
-include("trabajadores_php/conexion.php");
+include("php/conexion.php");
     $con=conectar();
 
     $sql="SELECT * FROM usuarios";
@@ -136,6 +136,13 @@ $row=mysqli_fetch_array($query);
         </div>
     </a>
 
+    <a href="a_facturas.php">
+        <div class="option">
+            <i class="fa-solid fa-money-bill-1-wave" title="Salir"></i>
+            <h4>Cerrar sesion</h4>
+        </div>
+    </a>
+
     <a href="php/cerrar_sesion.php">
         <div class="option">
             <i class="fas fa-power-off" title="Salir"></i>
@@ -173,7 +180,7 @@ $row=mysqli_fetch_array($query);
                             <h1>Busque cliente</h1>
                                 <form action="clientes_php/buscar.php" method="POST">
 
-                                    <input type="text" class="form-control mb-3" name="cod_trabajador" placeholder="Cedula">
+                                    <input type="text" class="form-control mb-3" name="cedula" placeholder="Cedula">
                                     
                                     <input type="submit" class="btn btn-primary">
                                 </form>

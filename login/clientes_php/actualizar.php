@@ -1,5 +1,5 @@
 <?php 
-    include("conexion.php");
+    include("../php/conexion.php");
     $con=conectar();
 
 $id=$_GET['id'];
@@ -25,10 +25,10 @@ $row=mysqli_fetch_array($query);
                 <div class="container mt-5">
                     <form action="update.php" method="POST">
                     
-                                <input type="hidden" name="cod_cliente" value="<?php echo $row['cod_cliente']  ?>">
+                                <input type="hidden" name="cod_cliente" value="<?php echo $row['cedula']  ?>">
                                 
-                                <input type="text" class="form-control mb-3" name="dni" placeholder="Dni" value="<?php echo $row['dni']  ?>">
-                                <input type="text" class="form-control mb-3" name="nombres" placeholder="Nombres" value="<?php echo $row['nombres']  ?>">
+                                <input type="text" class="form-control mb-3" name="dni" placeholder="Dni" value="<?php echo $row['cedula']  ?>">
+                                <input type="text" class="form-control mb-3" name="nombres" placeholder="Nombres" value="<?php echo $row['nombre']  ?>">
                                 <input type="text" class="form-control mb-3" name="apellidos" placeholder="Apellidos" value="<?php echo $row['apellidos']  ?>">
                                 
                             <input type="submit" class="btn btn-primary btn-block" value="Actualizar">

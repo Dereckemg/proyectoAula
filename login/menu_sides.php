@@ -1,24 +1,22 @@
 <?php
-include("php/conexion_be.php");
-
 $iduser = $_SESSION['cod_usuario'];
 
 $sql = "SELECT nombre FROM trabajadores WHERE cod_trabajador = '$iduser'";
-$resultado = $conexion ->query($sql);
+$resultado = $con ->query($sql);
 $row = $resultado->fetch_assoc();
 
 $sql3 = "SELECT cargo FROM trabajadores WHERE cod_trabajador = '$iduser'";
-$resultado3 = $conexion ->query($sql3);
+$resultado3 = $con ->query($sql3);
 $row3 = $resultado3->fetch_assoc();
  function elegir_menu($titulo) {
      if ($titulo==1){}}
 
 $sql4 = "SELECT * FROM usuarios WHERE cod_usuario = '$iduser'";
-$query = mysqli_query($conexion,$sql);
+$query = mysqli_query($con,$sql);
 $row4 = mysqli_fetch_array($query);
 
 $sql5 = "SELECT Foto FROM usuarios WHERE cod_usuario = '$iduser'";
-$resultado5 = $conexion ->query($sql5);
+$resultado5 = $con ->query($sql5);
 $row5 = $resultado5->fetch_assoc();
   
 ?>
@@ -29,7 +27,7 @@ $row5 = $resultado5->fetch_assoc();
 <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
 
 </head>
-<body>
+<body id="body">
 <header>
         <div class="icon__menu">
             <i class="fas fa-bars" id="btn_open"></i>
@@ -100,6 +98,12 @@ $row5 = $resultado5->fetch_assoc();
             <i class="fas fa-car" title="Automoviles"></i>
         </div>
     </a>
+     <a href="a_facturas.php">
+        <div class="option">
+            <i class="fa-solid fa-money-bill-1-wave" title="Salir"></i>
+            <h4>Cerrar sesion</h4>
+        </div>
+    </a>
 
     <a href="php/cerrar_sesion.php">
         <div class="option">
@@ -112,7 +116,7 @@ $row5 = $resultado5->fetch_assoc();
 
 </div>
 
-<script src="js_bienvenides.js"></script>
+<script src="js_bienvenidess.js"></script>
 
 </body>
 </html>

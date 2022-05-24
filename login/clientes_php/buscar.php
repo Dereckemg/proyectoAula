@@ -1,19 +1,19 @@
 <?php 
-include("conexion.php");
-    $con=conectar();
+include("../php/conexion.php");
+$con=conectar();
 
-$cod_cliente = $_REQUEST['cod_cliente'];
+$cedula = $_POST["cedula"];
     
-$registros=$con->query("SELECT * FROM clientes WHERE cod_cliente=$cod_cliente");
+$registros=$con->query("SELECT * FROM clientes WHERE cedula=$cedula");
 
-$sql="SELECT * FROM clientes WHERE cod_cliente = '$cod_cliente'";
+$sql="SELECT * FROM clientes WHERE cedula = '$cedula'";
 $query=mysqli_query($con,$sql);
 
-    if($query){
-        while($registro=mysqli_fetch_array($registros)){
-            echo $registro['cod_cliente']." ". $registro['nombres']. " ". $registro['apellidos'];
-        }
-    }
+    // if($query){
+    //     while($registro=mysqli_fetch_array($registros)){
+    //         echo $registro['cedula']." ". $registro['nombre']. " ". $registro['apellidos']." ". $registro['direccion']." ". $registro['telefono'];
+    //     }
+    // }
 
 
 ?>
@@ -36,5 +36,39 @@ $query=mysqli_query($con,$sql);
                 <i class="fa fa-chevron-left w3-xxlarge" style="font-size: xxx-large; color: #FF8616;"></i>
             </div>
         </a>
+        <table class="table vw-100">
+                                <thead class="table-success table-striped table-dark" >
+                                    <tr>
+                                        <th>Cedula</th>
+                                        <th>Nombres</th>
+                                        <th>Apellidos</th>
+                                        <th>Direccion</th>
+                                        <th>Telefono</th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                        <?php
+                                            //while($row=mysqli_fetch_array($query)){
+                                                $query ="SELECT * FROM clientes WHERE cedula = '$cedula'";
+                                                $result = mysqli_query($con, $query) or die(mysqli_error($con));
+                                                while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
+                                        ?>
+                                            <tr>
+                                                <th><?php  echo $row['cedula']?></th>
+                                                <th><?php  echo $row['nombre']?></th>
+                                                <th><?php  echo $row['apellidos']?></th>
+                                                <th><?php  echo $row['direccion']?></th>    
+                                                <th><?php  echo $row['telefono']?></th>        
+                                                <th><a href="clientes_php/actualizar.php?id=<?php echo $row['cedula'] ?>" class="btn btn-info">Editar</a></th>
+                                                <th><a href="clientes_php/delete.php?id=<?php echo $row['cedula'] ?>" class="btn btn-danger">Eliminar</a></th>                                        
+                                            </tr>
+                                        <?php 
+                                            }
+                                        ?>
+                                </tbody>
+                            </table>
     </body>
 </html>

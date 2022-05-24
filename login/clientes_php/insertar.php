@@ -7,6 +7,8 @@ $nombre=$_POST['nombres'];
 $apellidos=$_POST['apellidos'];
 $direccion=$_POST['direccion'];
 $telefono=$_POST['telefono'];
+$fecha = getdate();
+$actual = $fecha["year"]."-".$fecha["mon"]."-".$fecha["mday"];
 
 
 $verificar_cedula= mysqli_query($con,"SELECT * FROM clientes WHERE cedula= '$cedula' ");
@@ -22,7 +24,7 @@ $verificar_cedula= mysqli_query($con,"SELECT * FROM clientes WHERE cedula= '$ced
     }
 
 
-$sql="INSERT INTO clientes VALUES('$cedula','$nombre','$apellidos','$direccion','$telefono')";
+$sql="INSERT INTO clientes VALUES('$cedula','$nombre','$apellidos','$direccion','$telefono','$actual')";
 $query= mysqli_query($con,$sql);
 
 if($query){

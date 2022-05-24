@@ -1,6 +1,6 @@
 <?php
 
-include("conexion.php");
+include("../php/conexion.php");
 $con=conectar();
 
 $cod_trabajador=$_POST['cod_trabajador'];

@@ -2,19 +2,20 @@
 
         session_start();
 
-        include 'conexion_be.php';
+        include("conexion.php");
+        $con=conectar();
         $usuario = $_POST['usuario'];
         
        // $correo = $_POST['correo'];
         $contrasena = $_POST['contrasena'];
         
-        $validar_login = mysqli_query($conexion, "SELECT * FROM usuarios WHERE usuario ='$usuario' 
+        $validar_login = mysqli_query($con, "SELECT * FROM usuarios WHERE usuario ='$usuario' 
                         and contraseña='$contrasena'");
                         
                         if (mysqli_num_rows($validar_login) > 0){
                             //$resultado = mysqli_query($conexion,"SELECT cod_usuario FROM usuarios WHERE usuario ='$usuario' and contrasena='$contrasena'");
                             $sql= "SELECT cod_usuario FROM usuarios WHERE usuario ='$usuario' and contraseña='$contrasena'";
-                            $resultado = $conexion ->query($sql);
+                            $resultado = $con ->query($sql);
                             $row = $resultado->fetch_assoc();
                             
                             // $row = $codigo_usuario ->fetch_assoc();

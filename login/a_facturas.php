@@ -119,7 +119,7 @@ $row=mysqli_fetch_array($query);
     ?>
 
     <a href="a_stock.php">
-        <div class="selected">
+        <div class="option">
             <i class="	fas fa-box-open" title="Inventario"></i>
         </div>
     </a>
@@ -137,9 +137,9 @@ $row=mysqli_fetch_array($query);
     </a>
 
     <a href="a_facturas.php">
-        <div class="option">
+        <div class="selected">
             <i class="fa-solid fa-money-bill-1-wave" title="Salir"></i>
-            <h4>Cerrar sesion</h4>
+            <h4>Facturas</h4>
         </div>
     </a>
 
@@ -159,7 +159,7 @@ $row=mysqli_fetch_array($query);
                         
                             <div class="col-md-3 ">
                         <div class="text-center mt-3">
-                            <h1>Ingrese herramienta</h1>
+                            <h1>Nueva factura</h1>
                                 <form action="clientes_php/insertar.php" method="POST">
 
                                     
@@ -177,7 +177,7 @@ $row=mysqli_fetch_array($query);
                         </div>
                         
                         <div class="col-md-3 mt-3">
-                            <h1>Busque herramienta</h1>
+                            <h1>Busque factura</h1>
                                 <form action="clientes_php/buscar.php" method="POST">
 
                                     <input type="text" class="form-control mb-3" name="cod_trabajador" placeholder="Cedula">

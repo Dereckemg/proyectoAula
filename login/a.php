@@ -5,8 +5,8 @@ header('Content-Type: text/html; charset=ISO-8859-1');
 
 session_start();
 
-include("php/conexion_be.php");
-
+include("php/conexion.php");
+    $con=conectar();
 
 
 if (!isset($_SESSION['cod_usuario'])){
@@ -26,17 +26,27 @@ window.location= "/proyectoAula/index.php";
 
 
 <?php
-
+//fecha
+$fecha = getdate();
+$actual = $fecha["year"]."-".$fecha["mon"]."-".$fecha["mday"];
+$ayer = $fecha["year"]."-".$fecha["mon"]."-".$fecha["mday"]-1;
 //Buscar usuario
 $iduser = $_SESSION['cod_usuario'];
-
-$sql = "SELECT nombre FROM trabajadores WHERE cod_trabajador = '$iduser'";
-$resultado = $conexion ->query($sql);
-$row = $resultado->fetch_assoc();
-
-$sql3 = "SELECT cargo FROM trabajadores WHERE cod_trabajador = '$iduser'";
-$resultado3 = $conexion ->query($sql3);
-$row3 = $resultado3->fetch_assoc();
+//cuenta clientes
+$sql = "SELECT count(*) as Clientes FROM clientes";
+$resultado = $con ->query($sql);
+$row2 = $resultado->fetch_assoc();
+//data de ayer y hoy
+$sql2 = "SELECT count(*) as Hoy FROM clientes WHERE Fecha_registro='$actual'";
+$sql3 = "SELECT count(*) as Ayer FROM clientes WHERE Fecha_registro='$ayer'";
+$resultado2 = $con ->query($sql2); $resultado3 = $con ->query($sql3);
+$row6 = $resultado2->fetch_assoc(); $row7 = $resultado3->fetch_assoc();
+if ($row7['Ayer']!='0'){
+$porcentaje = $row7['Ayer'] / $row6['Hoy'] * 100; 
+} else {
+    $porcentaje = $row6['Hoy'] * 100; 
+}
+//
 
 
 /*
@@ -97,9 +107,9 @@ $row=mysqli_fetch_array($query);
                <div class="target-information">
 
                <div class="section-contents">
-                       <h4 class="span-title">Titulo Prueba</h4>
-                       <span class="span-prices">$7,000</span>
-                       <span class="span-percentage">69.5% <i class="fa-solid fa-arrow-up" ></i></span>
+                       <h4 class="span-title">Clientes</h4>
+                       <span class="span-prices"><?php echo $row6['Hoy'] ?></span>
+                       <span class="span-percentage"><?php echo $porcentaje ?>% <i class="fa-solid fa-arrow-up" ></i></span>
 
                     </div>
                     <div class="section-icon-home">
@@ -129,7 +139,6 @@ $row=mysqli_fetch_array($query);
            
        </div>
     </main>
-    <script src="js_bienvenides.js"></script>
     <script>
         var ctx=document.getElementById("myChart").getContext("2d");
         var myChart = new Chart(ctx,{
@@ -167,6 +176,7 @@ $row=mysqli_fetch_array($query);
 
     </script>
     
-    
+    <script src="js_bienvenidess.js"></script>
+
 </body>
 </html>
