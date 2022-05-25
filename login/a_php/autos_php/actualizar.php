@@ -1,10 +1,10 @@
 <?php 
-    include("../php/conexion.php");
-    $con=conectar();
+include("../../php/conexion.php");
+$con=conectar();
 
 $id=$_GET['id'];
 
-$sql="SELECT * FROM clientes WHERE cedula='$id'";
+$sql="SELECT * FROM trabajadores WHERE cod_trabajador='$id'";
 $query=mysqli_query($con,$sql);
 
 $row=mysqli_fetch_array($query);
@@ -22,18 +22,29 @@ $row=mysqli_fetch_array($query);
         
     </head>
     <body>
+    <a href="http://localhost/proyectoAula/login/a_trabajadores.php">
+            <div>
+                <i class="fa fa-chevron-left w3-xxlarge" style="font-size: xxx-large; color: #FF8616;"></i>
+            </div>
+        </a>
                 <div class="container mt-5">
                     <form action="update.php" method="POST">
                     
-                                <input type="hidden" name="cod_cliente" value="<?php echo $row['cedula']  ?>">
+                                <input type="hidden" name="cod_trabajador" value="<?php echo $row['cod_trabajador']  ?>">
                                 
                                 <input type="text" class="form-control mb-3" name="dni" placeholder="Dni" value="<?php echo $row['cedula']  ?>">
                                 <input type="text" class="form-control mb-3" name="nombres" placeholder="Nombres" value="<?php echo $row['nombre']  ?>">
                                 <input type="text" class="form-control mb-3" name="apellidos" placeholder="Apellidos" value="<?php echo $row['apellidos']  ?>">
-                                
+                                <input type="text" class="form-control mb-3" name="Estado" placeholder="Estado" value="<?php echo $row['estado']  ?>">
+
                             <input type="submit" class="btn btn-primary btn-block" value="Actualizar">
                     </form>
                     
                 </div>
+                <a href="http://localhost/proyectoAula/login/a_trabajadores.php">
+            <div>
+                <i class="fa-solid fa-car" style="font-size: xxx-large; color: #FF8616;"></i>
+            </div>
+        </a>
     </body>
 </html>

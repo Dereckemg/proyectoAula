@@ -160,17 +160,14 @@ $row=mysqli_fetch_array($query);
                             <div class="col-md-3 ">
                         <div class="text-center mt-3">
                             <h1>Ingrese auto</h1>
-                                <form action="clientes_php/insertar.php" method="POST">
+                                <form action="a_php/autos_php/insertar.php" method="POST">
 
                                     
-                                    <input type="number" class="form-control mb-3 md-3" name="cedula" placeholder="Cedula">
-                                    <div class="input-group">
-                                    <input type="text" class="form-control mb-3" name="nombres" placeholder="Nombres">
-                                    <span class="input-group-addon">&nbsp;&nbsp;</span>
-                                    <input type="text" class="form-control mb-3" name="apellidos" placeholder="Apellidos">
-                                    </div>
-                                    <input type="text" class="form-control mb-3" name="direccion" placeholder="Direcci&oacute;n">
-                                    <input type="text" class="form-control mb-3" name="telefono" placeholder="Tel&eacute;fono">
+                                <input type="text" class="form-control mb-3" name="placa" placeholder="Placa">
+                                    <input type="text" class="form-control mb-3" name="marca" placeholder="Marca">
+                                    <input type="text" class="form-control mb-3" name="modelo" placeholder="Modelos">
+                                    <input type="text" class="form-control mb-3" name="color" placeholder="Color">
+                                    <input type="text" class="form-control mb-3" name="cedula_cliente" placeholder="Cedula de cliente">
                                     <input type="submit" class="btn btn-primary">
                                 </form>
                                 </div>
@@ -191,11 +188,11 @@ $row=mysqli_fetch_array($query);
                             <table class="table vw-100">
                                 <thead class="table-success table-striped table-dark" >
                                     <tr>
-                                        <th>Cedula</th>
-                                        <th>Nombres</th>
-                                        <th>Apellidos</th>
-                                        <th>Direccion</th>
-                                        <th>Telefono</th>
+                                        <th>Placa</th>
+                                        <th>Marca</th>
+                                        <th>Modelo</th>
+                                        <th>Color</th>
+                                        <th>Cedula de cliente</th>
                                         <th></th>
                                         <th></th>
                                     </tr>
@@ -204,18 +201,18 @@ $row=mysqli_fetch_array($query);
                                 <tbody>
                                         <?php
                                             //while($row=mysqli_fetch_array($query)){
-                                                $query = "SELECT * FROM clientes";
+                                                $query = "SELECT * FROM autos";
                                                 $result = mysqli_query($con, $query) or die(mysqli_error($con));
                                                 while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
                                         ?>
                                             <tr>
-                                                <th><?php  echo $row['cedula']?></th>
-                                                <th><?php  echo $row['nombre']?></th>
-                                                <th><?php  echo $row['apellidos']?></th>
-                                                <th><?php  echo $row['direccion']?></th>    
-                                                <th><?php  echo $row['telefono']?></th>        
-                                                <th><a href="clientes_php/actualizar.php?id=<?php echo $row['cedula'] ?>" class="btn btn-info">Editar</a></th>
-                                                <th><a href="clientes_php/delete.php?id=<?php echo $row['cedula'] ?>" class="btn btn-danger">Eliminar</a></th>                                        
+                                                <th><?php  echo $row['placa']?></th>
+                                                <th><?php  echo $row['marca']?></th>
+                                                <th><?php  echo $row['modelo']?></th>
+                                                <th><?php  echo $row['color']?></th>    
+                                                <th><?php  echo $row['cliente_id']?></th>        
+                                                <th><a href="a_php/autos_php/actualizar.php?id=<?php echo $row['placa'] ?>" class="btn btn-info">Editar</a></th>
+                                                <th><a href="a_php/autos_php/delete.php?id=<?php echo $row['placa'] ?>" class="btn btn-danger">Eliminar</a></th>                                        
                                             </tr>
                                         <?php 
                                             }

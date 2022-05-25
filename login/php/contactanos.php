@@ -1,6 +1,7 @@
 <?php
 
-include 'conexion_be.php';
+include("conexion.php");
+$con=conectar();
 
 $nombre = $_POST['introduce_nombre'];
 $apellido = $_POST['introduce_apellido'];
@@ -11,7 +12,7 @@ $mensaje = $_POST['area-de-texto'];
 $query = "INSERT INTO contactanos(nombre,apellido,telefono,email,mensaje)
     VALUES('$nombre','$apellido','$telefono','$email','$mensaje')";
 
-$ejecutar = mysqli_query($conexion, $query);
+$ejecutar = mysqli_query($con, $query);
 
 if($ejecutar){
     echo'
@@ -29,6 +30,6 @@ if($ejecutar){
        ';
 }
 
-mysqli_close($conexion);
+mysqli_close($con);
 
 ?>

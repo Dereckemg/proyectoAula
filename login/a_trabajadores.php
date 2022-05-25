@@ -161,7 +161,7 @@ $row=mysqli_fetch_array($query);
                             <div class="col-md-3 ">
                         <div class="text-center mt-3">
                             <h1>Ingrese trabajador</h1>
-                                <form action="trabajadores_php/insertar.php" method="POST">
+                                <form action="a_php/trabajadores_php/insertar.php" method="POST">
 
                                     <input type="text" class="form-control mb-3" name="cod_trabajador" placeholder="Codigo" id="texto">
                                    <script>
@@ -209,7 +209,7 @@ $row=mysqli_fetch_array($query);
                         
                         <div class="col-md-3 mt-3">
                             <h1>Busque trabajador</h1>
-                                <form action="trabajadores_php/buscar.php" method="POST">
+                                <form action="a_php/trabajadores_php/buscar.php" method="POST">
 
                                     <input type="text" class="form-control mb-3" name="cedula" placeholder="Cedula">
                                     
@@ -304,8 +304,8 @@ Aquí puedes escribir tu comentario -->
                                                 <th><?php  echo $row['apellidos']?></th>
                                                 <th><?php  echo $row['telefono']?></th>    
                                                 <th><?php  echo $row['cargo']?></th>        
-                                                <th><a href="trabajadores_php/actualizar.php?id=<?php echo $row['cod_trabajador'] ?>" class="btn btn-info">Editar</a></th>
-                                                <th><a href="trabajadores_php/delete.php?id=<?php echo $row['cod_trabajador'] ?>" class="btn btn-danger">Eliminar</a></th>                                        
+                                                <th><a href="a_php/trabajadores_php/actualizar.php?id=<?php echo $row['cod_trabajador'] ?>" class="btn btn-info">Editar</a></th>
+                                                <th><a href="a_php/trabajadores_php/delete.php?id=<?php echo $row['cod_trabajador'] ?>" class="btn btn-danger">Eliminar</a></th>                                        
                                             </tr>
                                         <?php 
                                             }

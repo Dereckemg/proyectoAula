@@ -1,12 +1,12 @@
 <?php 
-include("../php/conexion.php");
+include("../../php/conexion.php");
 $con=conectar();
 
 $cedula = $_POST["cedula"];
     
 $registros=$con->query("SELECT * FROM clientes WHERE cedula=$cedula");
 
-$sql="SELECT * FROM clientes WHERE cedula = '$cedula'";
+$sql="SELECT * FROM trabajadores WHERE cedula = '$cedula'";
 $query=mysqli_query($con,$sql);
 
     // if($query){
@@ -31,7 +31,7 @@ $query=mysqli_query($con,$sql);
         
     </head>
     <body>
-    <a href="http://localhost/proyectoAula/login/a_clientes.php">
+    <a href="http://localhost/proyectoAula/login/a_trabajadores.php">
             <div>
                 <i class="fa fa-chevron-left w3-xxlarge" style="font-size: xxx-large; color: #FF8616;"></i>
             </div>
@@ -42,8 +42,8 @@ $query=mysqli_query($con,$sql);
                                         <th>Cedula</th>
                                         <th>Nombres</th>
                                         <th>Apellidos</th>
-                                        <th>Direccion</th>
                                         <th>Telefono</th>
+                                        <th>Rol</th>
                                         <th></th>
                                         <th></th>
                                     </tr>
@@ -52,18 +52,18 @@ $query=mysqli_query($con,$sql);
                                 <tbody>
                                         <?php
                                             //while($row=mysqli_fetch_array($query)){
-                                                $query ="SELECT * FROM clientes WHERE cedula = '$cedula'";
+                                                $query ="SELECT * FROM trabajadores WHERE cedula = '$cedula'";
                                                 $result = mysqli_query($con, $query) or die(mysqli_error($con));
                                                 while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
                                         ?>
                                             <tr>
                                                 <th><?php  echo $row['cedula']?></th>
                                                 <th><?php  echo $row['nombre']?></th>
-                                                <th><?php  echo $row['apellidos']?></th>
-                                                <th><?php  echo $row['direccion']?></th>    
-                                                <th><?php  echo $row['telefono']?></th>        
-                                                <th><a href="clientes_php/actualizar.php?id=<?php echo $row['cedula'] ?>" class="btn btn-info">Editar</a></th>
-                                                <th><a href="clientes_php/delete.php?id=<?php echo $row['cedula'] ?>" class="btn btn-danger">Eliminar</a></th>                                        
+                                                <th><?php  echo $row['apellidos']?></th>    
+                                                <th><?php  echo $row['telefono']?></th>      
+                                                <th><?php  echo $row['cargo']?></th>        
+                                                <th><a href="trabajadores_php/actualizar.php?id=<?php echo $row['cedula'] ?>" class="btn btn-info">Editar</a></th>
+                                                <th><a href="trabajadores_php/delete.php?id=<?php echo $row['cedula'] ?>" class="btn btn-danger">Eliminar</a></th>                                        
                                             </tr>
                                         <?php 
                                             }

@@ -1,6 +1,6 @@
 <?php
 
-include("conexion.php");
+include("../../php/conexion.php");
 $con=conectar();
 
 $cod_cliente=$_POST['cod_cliente'];

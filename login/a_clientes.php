@@ -160,7 +160,7 @@ $row=mysqli_fetch_array($query);
                             <div class="col-md-3 ">
                         <div class="text-center mt-3">
                             <h1>Ingrese cliente</h1>
-                                <form action="clientes_php/insertar.php" method="POST">
+                                <form action="a_php/clientes_php/insertar.php" method="POST">
 
                                     
                                     <input type="number" class="form-control mb-3 md-3" name="cedula" placeholder="Cedula">
@@ -178,7 +178,7 @@ $row=mysqli_fetch_array($query);
                         
                         <div class="col-md-3 mt-3">
                             <h1>Busque cliente</h1>
-                                <form action="clientes_php/buscar.php" method="POST">
+                                <form action="a_php/clientes_php/buscar.php" method="POST">
 
                                     <input type="text" class="form-control mb-3" name="cedula" placeholder="Cedula">
                                     
@@ -214,8 +214,8 @@ $row=mysqli_fetch_array($query);
                                                 <th><?php  echo $row['apellidos']?></th>
                                                 <th><?php  echo $row['direccion']?></th>    
                                                 <th><?php  echo $row['telefono']?></th>        
-                                                <th><a href="clientes_php/actualizar.php?id=<?php echo $row['cedula'] ?>" class="btn btn-info">Editar</a></th>
-                                                <th><a href="clientes_php/delete.php?id=<?php echo $row['cedula'] ?>" class="btn btn-danger">Eliminar</a></th>                                        
+                                                <th><a href="a_php/clientes_php/actualizar.php?id=<?php echo $row['cedula'] ?>" class="btn btn-info">Editar</a></th>
+                                                <th><a href="a_php/clientes_php/delete.php?id=<?php echo $row['cedula'] ?>" class="btn btn-danger">Eliminar</a></th>                                        
                                             </tr>
                                         <?php 
                                             }

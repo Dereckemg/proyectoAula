@@ -1,5 +1,5 @@
 <?php
-include("conexion.php");
+include("../../php/conexion.php");
 $con=conectar();
 
 $cedula=$_POST['cedula'];
@@ -17,7 +17,7 @@ $verificar_cedula= mysqli_query($con,"SELECT * FROM clientes WHERE cedula= '$ced
         echo '
             <script>
                 alert("Este cedula ya esta registrada, intenta con otro diferente");
-                window.location= "../a_clientes.php";
+                window.location= "../../a_clientes.php";
             </script>
 ';
         exit();
@@ -28,12 +28,12 @@ $sql="INSERT INTO clientes VALUES('$cedula','$nombre','$apellidos','$direccion',
 $query= mysqli_query($con,$sql);
 
 if($query){
-    Header("Location: ../a_clientes.php");   
+    Header("Location: ../../a_clientes.php");   
 }else{
     echo '
             <script>
                 alert("No se pudo hacer el registro");
-                window.location= "../a_clientes.php";
+                window.location= "../../a_clientes.php";
             </script>
 ';
 }

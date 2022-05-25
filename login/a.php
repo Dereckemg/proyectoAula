@@ -42,7 +42,7 @@ $sql3 = "SELECT count(*) as Ayer FROM clientes WHERE Fecha_registro='$ayer'";
 $resultado2 = $con ->query($sql2); $resultado3 = $con ->query($sql3);
 $row6 = $resultado2->fetch_assoc(); $row7 = $resultado3->fetch_assoc();
 if ($row7['Ayer']!='0'){
-$porcentaje = $row7['Ayer'] / $row6['Hoy'] * 100; 
+$porcentaje = $row6['Hoy'] / $row7['Ayer'] * 100; 
 } else {
     $porcentaje = $row6['Hoy'] * 100; 
 }
@@ -108,7 +108,7 @@ $row=mysqli_fetch_array($query);
 
                <div class="section-contents">
                        <h4 class="span-title">Clientes</h4>
-                       <span class="span-prices"><?php echo $row6['Hoy'] ?></span>
+                       <span class="span-prices"><?php echo $row2['Clientes'] ?></span>
                        <span class="span-percentage"><?php echo $porcentaje ?>% <i class="fa-solid fa-arrow-up" ></i></span>
 
                     </div>
