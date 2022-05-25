@@ -37,7 +37,7 @@ $row5 = $resultado5->fetch_assoc();
         <div>
             <?php
         if ($row5['Foto']==NULL){?>
-        <a href="#" alt="Mi perfil" title="Mi perfil"><img  style="border-radius:50%;" width="40px" height="40px" src="../imagenes/user_default.png"></a>
+        <a href="a_perfil.php" alt="Mi perfil" title="Mi perfil"><img  style="border-radius:50%;" width="40px" height="40px" src="../imagenes/user_default.png"></a>
     <?php
         }else{?>
         <a href="a_perfil.php" alt="Mi Perfil" title="Mi perfil"><img  style="border-radius:50%;" width="40px" height="40px" src="data: image/jpg;base64,<?php  echo base64_encode($row5['Foto'])?>"/></a> <?php }?>

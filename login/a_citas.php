@@ -209,13 +209,13 @@ $row=mysqli_fetch_array($query);
                                                 while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
                                         ?>
                                             <tr>
-                                                <th><?php  echo $row['cedula']?></th>
+                                                <!-- <th><?php  echo $row['cedula']?></th>
                                                 <th><?php  echo $row['nombre']?></th>
                                                 <th><?php  echo $row['apellidos']?></th>
                                                 <th><?php  echo $row['direccion']?></th>    
                                                 <th><?php  echo $row['telefono']?></th>        
                                                 <th><a href="clientes_php/actualizar.php?id=<?php echo $row['cedula'] ?>" class="btn btn-info">Editar</a></th>
-                                                <th><a href="clientes_php/delete.php?id=<?php echo $row['cedula'] ?>" class="btn btn-danger">Eliminar</a></th>                                        
+                                                <th><a href="clientes_php/delete.php?id=<?php echo $row['cedula'] ?>" class="btn btn-danger">Eliminar</a></th>                                         -->
                                             </tr>
                                         <?php 
                                             }
